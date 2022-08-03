@@ -22,3 +22,9 @@ The console is a command interpreter that allows you to manipulate data without 
 The console validates this stoage engine.
 
 ![Console illustration](assets/console.png)
+
+**TODO:** Include commands to start command interpreter
+
+**TODO:** Describe how to start the command interpreter
+
+**TODO:** Include examples of commands
