@@ -14,7 +14,7 @@ class BaseModel:
     attributes/methods for other classes
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         """
         Initializes a aseModel instance
         """
