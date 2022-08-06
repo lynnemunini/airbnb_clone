@@ -22,8 +22,10 @@ class BaseModel:
         # re-create an instance with a dictionary representation
         if len(kwargs):
             self.id = kwargs["id"]
-            self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
-            self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            self.created_at = datetime.strptime(kwargs["created_at"],
+                                                "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                "%Y-%m-%dT%H:%M:%S.%f")
             self.my_number = kwargs["my_number"]
             self.name = kwargs["name"]
         else:
