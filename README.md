@@ -22,6 +22,7 @@ The console is a command interpreter that allows you to manipulate data without 
 * [console.py](console.py) contains the entry point to the interpreter.
 * `User` class is a child class of BaseModel.
 * [user.py](models/user.py) contains the User class.
+* More information about the classes can be found in the [models](models/) directory.
 
 The console validates this stoage engine.
 
