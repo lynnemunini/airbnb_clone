@@ -18,7 +18,10 @@ The console is a command interpreter that allows you to manipulate data without 
 * `tests` directory contains tests for the project.
 
 * `FileStorage` class serializes instances to a JSON file and deserializes JSON file to instances.
-* [FileStorage](models/engine/file_storage.py) contains the FileStorage class
+* [file_storage.py](models/engine/file_storage.py) contains the FileStorage class
+* [console.py](console.py) contains the entry point to the interpreter.
+* `User` class is a child class of BaseModel.
+* [user.py](models/user.py) contains the User class.
 
 The console validates this stoage engine.
 
