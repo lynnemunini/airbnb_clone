@@ -24,7 +24,8 @@ The console is a command interpreter that allows you to manipulate data without 
 * [user.py](models/user.py) contains the User class.
 * More information about the classes can be found in the [models](models/) directory.
 
-The console validates this stoage engine.
+
+**The console validates this stoage engine.**
 
 ![Console illustration](assets/console.png)
 
