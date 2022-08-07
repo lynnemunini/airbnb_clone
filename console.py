@@ -25,11 +25,11 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    def do_quit(self, args):
+    def do_quit(self, arg):
         """
         Command quit to exit the program
         """
-        return True
+        quit("See you soon!")
 
     def do_EOF(self, arg):
         """
