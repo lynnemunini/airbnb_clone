@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Command EOF to exit the program
         """
-        sys.exit()
+        return True
 
 
 # To make code not be executed when imported
