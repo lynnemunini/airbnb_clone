@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 
 """
-This module has a class City
+This module has a class Amenity
 that inherits from BaseModel
 """
 from models.base_model import BaseModel
 
 
-class City(BaseModel):
+class Amenity(BaseModel):
     """
-    Defines City attributes. Inherits
+    Defines Amenity attributes. Inherits
     from parent class BaseModel
     """
 
-    state_id = ""  # it will be the State.id
     name = ""
