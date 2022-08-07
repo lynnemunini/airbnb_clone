@@ -22,13 +22,17 @@ class BaseModel:
 
         # re-create an instance with a dictionary representation
         if len(kwargs):
-            self.id = kwargs["id"]
-            self.created_at = datetime.strptime(kwargs["created_at"],
-                                                "%Y-%m-%dT%H:%M:%S.%f")
-            self.updated_at = datetime.strptime(kwargs["updated_at"],
-                                                "%Y-%m-%dT%H:%M:%S.%f")
-            self.my_number = kwargs["my_number"]
-            self.name = kwargs["name"]
+            # To make the BaseModel class inheritable
+            # Don't hardcore assign values
+            for key in kwargs:
+                if key == "created_at":
+                    self.__dict__["created_at"] = datetime.strptime(
+                            kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == "updated_at":
+                    self.__dict__["updated_at"] = datetime.strptime(
+                            kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    self.__dict__[key] = kwargs[key]
         else:
             # to have a unique id for each model
             self.id = str(uuid.uuid4())
@@ -56,7 +60,10 @@ class BaseModel:
         Returns a dictionary containing all keys/values of __dict__
         of the instance
         """
-        self.__dict__["__class__"] = self.__class__.__name__
-        self.__dict__["created_at"] = self.created_at.isoformat()
-        self.__dict__["updated_at"] = self.updated_at.isoformat()
-        return self.__dict__
+
+        # Work with dicctionary copy
+        dictr = self.__dict__.copy()
+        dictr["__class__"] = str(type(self).__name__)
+        dictr["created_at"] = self.created_at.isoformat()
+        dictr["updated_at"] = self.updated_at.isoformat()
+        return dictr
