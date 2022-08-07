@@ -52,7 +52,6 @@ coverage.xml
 .pytest_cache/
 
 # Test checks
-test_base_model.py
 test_base_model_dict.py
 test_save_reload_base_model.py
 test_save_reload_user.py
