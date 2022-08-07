@@ -10,10 +10,10 @@ class HBNBCommand(cmd.Cmd):
     """
     contains the entry point of the command interpreter
     """
-    intro = """
-            Welcome to the AirBnB clone CLI.
-            Type help to list commands, quit to exit.
-            """
+    #intro = """
+            #Welcome to the AirBnB clone CLI.
+            #Type help to list commands, quit to exit.
+            #"""
 
     # The prompt issued to solicit input.
     prompt = '(hbnb)'
