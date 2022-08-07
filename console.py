@@ -11,6 +11,8 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
+import shlex
+import json
 
 
 class HBNBCommand(cmd.Cmd):
@@ -124,29 +126,37 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and id by
         adding or updating attribute (save the change into the JSON file)
         """
-        objects = storage.all()
-        args = arg.split(' ')
-
-        if len(arg) == 0:
+        if not arg:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+            return
+        new_arg = shlex.split(arg)
+        if new_arg[0] not in HBNBCommand.__class:
             print("** class doesn't exist **")
-        elif len(arg) == 1 and args[0] == "BaseModel":
+            return
+        elif len(new_arg) == 1:
             print("** instance id missing **")
-        elif f"{args[0]}.{args[1]}" not in objects:
-            print("** no instance found **")
+            return
         else:
-            for key, value in objects.items():
-                obj_name = value.__class__.__name__
-                obj_id = value.id
-                if obj_name == args[0] and obj_id == args[1]:
-                    if len(arg) == 2:
-                        print(" ** attribute name missing **")
-                    elif len(args) == 3:
-                        print("** value missing **")
-                    else:
-                        setattr(value, args[2], args[3])
-                        storage.save()
+            try:
+                j = new_arg[0] + "." + new_arg[1]
+                storage.all()[j]
+            except Exception:
+                print("** no instance found **")
+                return
+        if len(new_arg) == 2:
+            print("** attribute name missing **")
+        elif len(new_arg) == 3:
+            print("** value missing **")
+        else:
+            j = new_arg[0] + "." + new_arg[1]
+            if new_arg[3] is float:
+                value = float(new_arg[3])  # casting value unto it datatype
+            elif new_arg[3] is int:
+                value = int(new_arg[3])
+            else:
+                value = str(new_arg[3].strip(":\"'"))
+            setattr(storage.all()[j], new_arg[2].strip(":\"'"), value)
+            storage.save()
 
 
 # To make code not be executed when imported
