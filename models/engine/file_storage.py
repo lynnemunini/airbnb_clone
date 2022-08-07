@@ -17,7 +17,7 @@ class FileStorage:
     # private class attributes
     __file_path = "file.json"
     __objects = {}
-    
+
     # public instance methods
     def all(self):
         """
@@ -49,4 +49,5 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as f:
                 dictr = json.load(f)
                 for key, value in dictr.items():
-                    FileStorage.__objects[key] = eval(key.split(".")[0])(**value)
+                    FileStorage.__objects[key] = eval(
+                            key.split(".")[0])(**value)
