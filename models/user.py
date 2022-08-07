@@ -8,6 +8,11 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
+    """
+    Defines user attributes.
+    Inherits from BaseModel
+    """
+
     # Public class attributes
     email = ""
     password = ""
