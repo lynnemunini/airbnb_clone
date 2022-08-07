@@ -4,7 +4,13 @@ Module that Contains the entry point of the command interpreter
 """
 import cmd
 from models.base_model import BaseModel
-import models
+from models import storage
+from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,6 +20,8 @@ class HBNBCommand(cmd.Cmd):
 
     # The prompt issued to solicit input.
     prompt = '(hbnb)'
+    __class = ["BaseModel", "User", "Amenity", "City",
+               "Place", "Review", "State"]
 
     def emptyline(self):
         """
@@ -42,19 +50,18 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split(' ')
         if len(arg) == 0:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.__class:
             print("** class doesn't exist **")
         else:
             print(eval(args[0])().id)
-            models.storage.save()
+            storage.save()
 
     def do_show(self, arg):
         """
         Prints the string representation of an instance
         based on the class name and id
         """
-        objects = models.storage.all()
-        classes = ['BaseModel']
+        objects = storage.all()
 
         if len(arg) == 0:
             print("** class name missing **")
@@ -62,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split(' ')
 
-        if args[0] not in classes:
+        if args[0] not in HBNBCommand.__class:
             print("** class doesn't exist **")
         elif len(args) == 1 and args[0] == "BaseModel":
             print("** instance id missing **")
@@ -76,39 +83,48 @@ class HBNBCommand(cmd.Cmd):
         Deletes an instance based on the class name and id
         (save the change into the JSON file)
         """
-        objects = models.storage.all()
+        objects = storage.all()
         args = arg.split(' ')
 
         if len(arg) == 0:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.__class:
             print("** class doesn't exist **")
-        elif len(arg) == 1 and args[0] == "BaseModel":
+        elif len(arg) == 1 and args[0] in HBNBCommand.__class:
             print("** instance id missing **")
         else:
             del objects[f"{args[0]}.{args[1]}"]
-            models.storage.save()
+            storage.save()
 
     def do_all(self, arg):
         """
         Prints all string representation of all instances
         based or not on the class name.
         """
-        args = arg.split(' ')
-        if args[0] != "BaseModel":
-            print("** class doesn't exist **")
+        if not arg:
+            dictr = []
+            for key, value in storage.all().items():
+                dictr.append(str(value))
+            if dictr != 0:
+                print(dictr)
         else:
-            my_list = []
-            for obj in models.storage.all().values():
-                my_list.append(str(obj))
-            print(my_list)
+            arg = arg.split()
+            if arg[0] in HBNBCommand.__class:
+                dictr = []
+                for key, value in storage.all().items():
+                    if str(key.split(".")[0]) == arg[0]:
+                        dictr.append(str(value))
+                if dictr != 0:
+                    print(dictr)
+            else:
+                print("** class doesn't exist **")
 
     def do_update(self, arg):
         """
         Updates an instance based on the class name and id by
         adding or updating attribute (save the change into the JSON file)
         """
-        objects = models.storage.all()
+        objects = storage.all()
         args = arg.split(' ')
 
         if len(arg) == 0:
@@ -130,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
                         print("** value missing **")
                     else:
                         setattr(value, args[2], args[3])
-                        models.storage.save()
+                        storage.save()
 
 
 # To make code not be executed when imported
