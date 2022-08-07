@@ -2,7 +2,8 @@
 """
 Module that Contains the entry point of the command interpreter
 """
-import cmd, sys
+import cmd
+import sys
 
 
 class HBNBCommand(cmd.Cmd):
@@ -19,11 +20,11 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """
-        Method called when an empty line is 
+        Method called when an empty line is
         entered in response to the prompt
         """
         pass
-    
+
     def do_quit(self, args):
         """
         Command quit to exit the program
@@ -35,6 +36,7 @@ class HBNBCommand(cmd.Cmd):
         Command EOF to exit the program
         """
         sys.exit()
+
 
 # To make code not be executed when imported
 if __name__ == '__main__':
