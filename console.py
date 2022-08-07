@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 import models
 
 
+
 class HBNBCommand(cmd.Cmd):
     """
     contains the entry point of the command interpreter
