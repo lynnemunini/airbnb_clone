@@ -30,16 +30,70 @@ The console is a command interpreter that allows you to manipulate data without 
 ![Console illustration](assets/console.png)
 
 **Command Interpreter**
-To start the interpreter, type `./console.py` in the terminal. You can use the commands `create`, `show`, `destroy`, `all` and `update` to manipulate objects.
+
+To start the interpreter, type `./console.py` in the terminal. To quit the interpreter, type `quit` for help on the console commands, type `help` to see all the available commands, type `help <command>` to see the help for a specific command.
+
+You can use the commands `create` Ex: `create BaseModel`, 
+`show` Ex: `show BaseModel 1234-1234-1234`, 
+`destroy` Ex: `destroy BaseModel 1234-1234-1234`, 
+`all` Ex: `all BaseModel` and 
+`update` Ex: `update BaseModel 1234-1234-1234 email "aibnb@mail.com"` to manipulate objects. `update <class name> <id> <attribute name> "<attribute value>"`
 
 *Example:*
 To create a new user, type `create User`.
 To show all users, type `all User`.
 To delete a user, type `destroy User <id>`. You can find the id of the user in the `all` command.
 
-![Using Console illustration](assets/user-cmd.png)
-**TODO:** Include commands to start command interpreter
+See below code snippet for more information.
 
-**TODO:** Describe how to start the command interpreter
+```
+(hbnb) create User
+52eca31c-a644-4363-a868-ec9cff30b32e
+(hbnb) show User 52eca31c-a644-4363-a868-ec9cff30b32e
+[User] (52eca31c-a644-4363-a868-ec9cff30b32e) {'id': '52eca31c-a644-4363-a868-ec9cff30b32e', 'created_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112740), 'updated_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112757)}
+(hbnb) all User
+["[User] (52eca31c-a644-4363-a868-ec9cff30b32e) {'id': '52eca31c-a644-4363-a868-ec9cff30b32e', 'created_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112740), 'updated_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112757)}"]
+(hbnb) create User
+76cbeb7a-c450-4bf3-823c-a565074acc4f
+(hbnb) destroy User 76cbeb7a-c450-4bf3-823c-a565074acc4f
+(hbnb) create User
+897fdef6-a49e-45ea-b5c2-686f676e16c0
+(hbnb) all User
+["[User] (52eca31c-a644-4363-a868-ec9cff30b32e) {'id': '52eca31c-a644-4363-a868-ec9cff30b32e', 'created_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112740), 'updated_at': datetime.datetime(2022, 8, 9, 14, 18, 19, 112757)}", "[User] (897fdef6-a49e-45ea-b5c2-686f676e16c0) {'id': '897fdef6-a49e-45ea-b5c2-686f676e16c0', 'created_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678376), 'updated_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678398)}"]
+(hbnb) create Place
+35aa319d-728f-4a04-8802-ad202a06cb59
+(hbnb) show User 897fdef6-a49e-45ea-b5c2-686f676e16c0
+[User] (897fdef6-a49e-45ea-b5c2-686f676e16c0) {'id': '897fdef6-a49e-45ea-b5c2-686f676e16c0', 'created_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678376), 'updated_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678398)}
+(hbnb) update User 897fdef6-a49e-45ea-b5c2-686f676e16c0 email "munini@gmail.com"
+(hbnb) show User 897fdef6-a49e-45ea-b5c2-686f676e16c0
+[User] (897fdef6-a49e-45ea-b5c2-686f676e16c0) {'id': '897fdef6-a49e-45ea-b5c2-686f676e16c0', 'created_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678376), 'updated_at': datetime.datetime(2022, 8, 9, 14, 28, 26, 678398), 'email': 'munini@gmail.com'}
+(hbnb) 
+```
 
-**TODO:** Include examples of commands
+```
+(hbnb) all MyModel
+** class doesn't exist **
+(hbnb) show BaseModel
+** instance id missing **
+(hbnb) show BaseModel My_First_Model
+** no instance found **
+(hbnb) create BaseModel
+daec2e8c-43bb-4af7-b7f8-c94ba930ed41
+(hbnb) all BaseModel
+["[BaseModel] (daec2e8c-43bb-4af7-b7f8-c94ba930ed41) {'id': 'daec2e8c-43bb-4af7-b7f8-c94ba930ed41', 'created_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147642), 'updated_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147658)}"]
+(hbnb) destroy
+** class name missing **
+(hbnb) update BaseModel daec2e8c-43bb-4af7-b7f8-c94ba930ed41 first_name "Mark"
+(hbnb) show BaseModel daec2e8c-43bb-4af7-b7f8-c94ba930ed41
+[BaseModel] (daec2e8c-43bb-4af7-b7f8-c94ba930ed41) {'id': 'daec2e8c-43bb-4af7-b7f8-c94ba930ed41', 'created_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147642), 'updated_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147658), 'first_name': 'Mark'}
+(hbnb) create BaseModel
+795dd79f-8042-40c9-82c0-17f2ae936112
+(hbnb) all BaseModel
+["[BaseModel] (daec2e8c-43bb-4af7-b7f8-c94ba930ed41) {'id': 'daec2e8c-43bb-4af7-b7f8-c94ba930ed41', 'created_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147642), 'updated_at': datetime.datetime(2022, 8, 9, 14, 34, 25, 147658), 'first_name': 'Mark'}", "[BaseModel] (795dd79f-8042-40c9-82c0-17f2ae936112) {'id': '795dd79f-8042-40c9-82c0-17f2ae936112', 'created_at': datetime.datetime(2022, 8, 9, 14, 35, 55, 347099), 'updated_at': datetime.datetime(2022, 8, 9, 14, 35, 55, 347118)}"]
+(hbnb) destroy BaseModel 795dd79f-8042-40c9-82c0-17f2ae936112
+(hbnb) show BaseModel 795dd79f-8042-40c9-82c0-17f2ae936112
+** no instance found **
+(hbnb) 
+```
+
+A unique id is assigned to each object on creation.
