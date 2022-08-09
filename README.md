@@ -15,7 +15,7 @@ The console is a command interpreter that allows you to manipulate data without 
 * `BaseModel` is a class that defines all common attributes/methods for other classes.
 * The [base_model.py](models/base_model.py) contains the BaseModel class.
 * [__init__.py](models/__init__.py) file lets Python interpreter know that a directory contains code for a Python module.
-* `tests` directory contains tests for the project.
+* `tests` directory contains unittests for the classes defined in the `models` directory.
 
 * `FileStorage` class serializes instances to a JSON file and deserializes JSON file to instances.
 * [file_storage.py](models/engine/file_storage.py) contains the FileStorage class
