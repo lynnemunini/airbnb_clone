@@ -29,6 +29,15 @@ The console is a command interpreter that allows you to manipulate data without 
 
 ![Console illustration](assets/console.png)
 
+**Command Interpreter**
+To start the interpreter, type `./console.py` in the terminal. You can use the commands `create`, `show`, `destroy`, `all` and `update` to manipulate objects.
+
+*Example:*
+To create a new user, type `create User`.
+To show all users, type `all User`.
+To delete a user, type `destroy User <id>`. You can find the id of the user in the `all` command.
+
+![Using Console illustration](assets/user-cmd.png)
 **TODO:** Include commands to start command interpreter
 
 **TODO:** Describe how to start the command interpreter
