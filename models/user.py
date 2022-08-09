@@ -18,6 +18,3 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
-    # TODO: Update console.py to allow show, create
-    # destroy, update and all used with User
