@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     # The prompt issued to solicit input.
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
     __class = ["BaseModel", "User", "Amenity", "City",
                "Place", "Review", "State"]
 
