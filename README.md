@@ -44,7 +44,7 @@ To create a new user, type `create User`.
 To show all users, type `all User`.
 To delete a user, type `destroy User <id>`. You can find the id of the user in the `all` command.
 
-See below code snippet for more information.
+See below code snippets for more information.
 
 ```
 (hbnb) create User
