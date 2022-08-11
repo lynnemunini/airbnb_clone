@@ -9,6 +9,9 @@ The goal of this project is deploy a clone of [AirBnB website](https://www.airbn
 * A database or files that store data (data = objects)
 * An API that provides a communication interface between the front-end and data (retrieve, create, delete, update them)
 
+<br>
+<br>
+
 ### The console
 The console is a command interpreter that allows you to manipulate data without a visual interface. It let's us manage (create, update, destroy, etc) objects via a console / command interpreter and store and persist objects to a file (JSON file)
 
@@ -97,6 +100,9 @@ daec2e8c-43bb-4af7-b7f8-c94ba930ed41
 ```
 
 A unique id is assigned to each object on creation.
+
+<br>
+<br>
 
 ### Web static
 This section describes the Front-end of the application. Each page is rendered by a template.
