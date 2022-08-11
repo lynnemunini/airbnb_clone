@@ -97,3 +97,12 @@ daec2e8c-43bb-4af7-b7f8-c94ba930ed41
 ```
 
 A unique id is assigned to each object on creation.
+
+### Web static
+This section describes the Front-end of the application. Each page is rendered by a template.
+
+**This image illustrates how the application is rendered.**
+
+![FrontEnd Illumination](assets/web-static.png)
+
+The front end is implemented using HTML markup and CSS.
