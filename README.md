@@ -1,7 +1,9 @@
 # AirBnB clone
+
 ![Holberton Image](assets/hbnb.png)
 
 ## Overview
+
 The goal of this project is deploy a clone of [AirBnB website](https://www.airbnb.com/) on a server.
 
 * The application is composed of a command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging).
@@ -13,6 +15,7 @@ The goal of this project is deploy a clone of [AirBnB website](https://www.airbn
 <br>
 
 ### The console
+
 The console is a command interpreter that allows you to manipulate data without a visual interface. It let's us manage (create, update, destroy, etc) objects via a console / command interpreter and store and persist objects to a file (JSON file)
 
 * `BaseModel` is a class that defines all common attributes/methods for other classes.
@@ -27,8 +30,7 @@ The console is a command interpreter that allows you to manipulate data without 
 * [user.py](models/user.py) contains the User class.
 * More information about the classes can be found in the [models](models/) directory.
 
-
-**The console validates this stoage engine.**
+**The console validates this stoage engine.*
 
 ![Console illustration](assets/console.png)
 
@@ -105,6 +107,7 @@ A unique id is assigned to each object on creation.
 <br>
 
 ### Web static
+
 This section describes the Front-end of the application. Each page is rendered by a template.
 
 **This image illustrates how the application is rendered.**
